@@ -16,11 +16,12 @@ class LinkedList {
     if (this.head !== null) {
       this.tail.next = new Node(value);
       this.tail = this.tail.next;
-      this.length++;
     } else {
       this.head = new Node(value);
       this.tail = this.head;
     }
+    this.length++;
+    return this;
   }
 }
 
