@@ -12,6 +12,9 @@ class LinkedList {
     this.length = 1;
     this.tail = this.head;
   }
+
+  //PUSH
+
   push(value) {
     if (this.head !== null) {
       this.tail.next = new Node(value);
@@ -23,6 +26,9 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+  //POP
+
   pop() {
     if (!this.head) return undefined;
     let temp = this.head;
