@@ -46,6 +46,21 @@ class LinkedList {
     }
     return temp;
   }
+
+  //UNSHIFT
+
+  unshift(value) {
+    let newNode = new Node(value);
+    if (this.head == null) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 
 const LL1 = new LinkedList(4);
@@ -54,5 +69,9 @@ LL1.push(1000);
 console.log(LL1);
 console.log("popping");
 console.log("ele popped", LL1.pop());
+console.log("ele popped", LL1.pop());
+console.log("ele popped", LL1.pop());
+
+LL1.unshift(99);
 
 console.log(LL1);
