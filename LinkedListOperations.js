@@ -78,6 +78,30 @@ class LinkedList {
       return undefined;
     }
   }
+
+  //GET (retrieve the element from a given index)
+
+  get(index) {
+    if (index >= this.length || index < 0) {
+      return undefined;
+    }
+    let temp = this.head;
+    for (let i = 0; i < index; i++) {
+      temp = temp.next;
+    }
+    return temp;
+  }
+
+  //SET (replace the value of a element in a given index with a given value)
+
+  set(index, value) {
+    let temp = this.get(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    }
+    return false;
+  }
 }
 
 const LL1 = new LinkedList(4);
