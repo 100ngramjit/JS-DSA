@@ -1,3 +1,5 @@
+//node class
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -5,7 +7,11 @@ class Node {
   }
 }
 
+//Linked List class and operations
+
 class LinkedList {
+  //Initializing a Linked List with a Node
+
   constructor(value) {
     const NewNode = new Node(value);
     this.head = NewNode;
@@ -13,7 +19,7 @@ class LinkedList {
     this.tail = this.head;
   }
 
-  //PUSH (insert an element at the tail/end)
+  //PUSH (insert a node at the tail/end)
 
   push(value) {
     if (this.head !== null) {
@@ -47,7 +53,7 @@ class LinkedList {
     return temp;
   }
 
-  //UNSHIFT (insert an element at the head/start)
+  //UNSHIFT (insert a node at the head/start)
 
   unshift(value) {
     let newNode = new Node(value);
@@ -62,7 +68,7 @@ class LinkedList {
     return this;
   }
 
-  //SHIFT (delete an element from the head/start)
+  //SHIFT (delete a node from the head/start)
 
   shift() {
     if (this.head) {
@@ -79,7 +85,7 @@ class LinkedList {
     }
   }
 
-  //GET (retrieve the element from a given index)
+  //GET (retrieve the node from a given index)
 
   get(index) {
     if (index >= this.length || index < 0) {
@@ -92,7 +98,7 @@ class LinkedList {
     return temp;
   }
 
-  //SET (replace the value of a element in a given index with a given value)
+  //SET (replace the value of a node in a given index with a given value)
 
   set(index, value) {
     let temp = this.get(index);
@@ -102,19 +108,43 @@ class LinkedList {
     }
     return false;
   }
+
+  //INSERT (insert a node at a given index)
+
+  insert(index, value) {
+    if (index > this.length || index < 0) {
+      return undefined;
+    } else if (index == 0) {
+      return this.unshift(value);
+    } else if (index === this.length) {
+      return this.push(value);
+    }
+    let ele = new Node(value);
+    let temp = this.head;
+    let pre = {};
+    for (let i = 0; i < index; i++) {
+      pre = temp;
+      temp = temp.next;
+    }
+    pre.next = ele;
+    ele.next = temp;
+    this.length++;
+    return this;
+  }
 }
 
 const LL1 = new LinkedList(4);
 LL1.push(88);
 LL1.push(1000);
 // console.log(LL1);
-console.log("popping");
+// console.log("popping");
 // console.log("ele popped", LL1.pop());
 // console.log("ele popped", LL1.pop());
 // console.log("ele popped", LL1.pop());
 
 LL1.unshift(99);
-LL1.shift();
+// LL1.shift();
 console.log(LL1);
-console.log(LL1.set(0, 99));
+// LL1.insert(2, 0);
+LL1.delete(1);
 console.log(LL1);
