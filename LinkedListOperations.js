@@ -131,6 +131,24 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+  //DELETE (delete a node from a given index)
+
+  delete(index) {
+    if (index >= this.length || index < 0) {
+      return undefined;
+    } else if (index == 0) {
+      return this.shift();
+    } else if (index === this.length - 1) {
+      return this.pop();
+    }
+    let temp = this.get(index);
+    let pre = this.get(index - 1);
+    pre.next = temp.next;
+    temp.next = null;
+    this.length--;
+    return this;
+  }
 }
 
 const LL1 = new LinkedList(4);
