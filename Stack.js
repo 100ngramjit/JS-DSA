@@ -13,7 +13,23 @@ class Stack {
     this.top = newNode;
     this.length = 1;
   }
+
+  //PUSH (add an element from the top)
+
+  push(value) {
+    let newNode = new Node(value);
+    if (this.length == 0) {
+      this.top = newNode;
+    } else {
+      newNode.next = this.top;
+      this.top = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 
 let myStack = new Stack(11);
+myStack.push(45);
+
 console.log(myStack);
