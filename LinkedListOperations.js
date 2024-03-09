@@ -150,6 +150,8 @@ class LinkedList {
     return this;
   }
 
+  //REVERSE (reverse a linked list)
+
   reverse() {
     if (this.length <= 0) {
       return undefined;
