@@ -149,6 +149,24 @@ class LinkedList {
     this.length--;
     return this;
   }
+
+  reverse() {
+    if (this.length <= 0) {
+      return undefined;
+    }
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+    let next = temp.next;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      next = temp.next;
+      temp.next = prev;
+      prev = temp;
+      temp = next;
+    }
+    return this;
+  }
 }
 
 const LL1 = new LinkedList(4);
@@ -164,5 +182,6 @@ LL1.unshift(99);
 // LL1.shift();
 console.log(LL1);
 // LL1.insert(2, 0);
-LL1.delete(1);
+// LL1.delete(1);
+LL1.reverse();
 console.log(LL1);
