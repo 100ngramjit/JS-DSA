@@ -55,11 +55,21 @@ class BST {
     }
     return false;
   }
+
+  //MINIMUM VALUE
+
+  minValue(node) {
+    while (node.left) {
+      node = node.left;
+    }
+    return node;
+  }
 }
 
 let myBST = new BST(25);
 myBST.insert(6);
 myBST.insert(44);
 myBST.insert(78);
+
 console.log(myBST);
-console.log(myBST.contains(44));
+console.log(myBST.minValue(myBST.root));
