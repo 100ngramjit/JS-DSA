@@ -38,6 +38,23 @@ class BST {
       }
     }
   }
+
+  //CONTAINS (if BST has a given specific value / node)
+
+  contains(value) {
+    if (!this.root) return false;
+    let temp = this.root;
+    while (temp) {
+      if (value < temp.value) {
+        temp = temp.left;
+      } else if (value > temp.value) {
+        temp = temp.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 let myBST = new BST(25);
@@ -45,3 +62,4 @@ myBST.insert(6);
 myBST.insert(44);
 myBST.insert(78);
 console.log(myBST);
+console.log(myBST.contains(44));
